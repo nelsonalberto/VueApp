@@ -11,7 +11,7 @@
     </div>
     <hr>
     <Users 
-      v-for="user in userlisting"
+      v-for="user in users"
       :key="user.id" 
       :name="user.name" 
       :username="user.username">
@@ -23,10 +23,10 @@
 
 <script>
 
-import Http from "axios";
 import Users from "./components/Users.vue";
 import Counter from "./components/Counter.vue";
 import Countries from "./components/Countries.vue";
+import { mapActions, mapState  } from 'vuex';
 
 export default
 {
@@ -35,14 +35,14 @@ export default
   {
     Users, Counter, Countries
   },
-  data() { return { userlisting: []}},
+  data() { return { currentUser: null }},
+  computed: 
+  {
+    ...mapState(['users']),
+  },
   methods:
   {
-      getUsers()
-      {
-        Http.get("https://jsonplaceholder.typicode.com/users")
-            .then((response) =>this.userlisting = response.data)
-      }
+    ...mapActions(['getUsers'])
   },
   mounted()
   {

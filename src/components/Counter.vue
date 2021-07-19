@@ -2,14 +2,14 @@
   <div>
       <p>Current count: {{counter}} </p>
       <div>
-          <button type="button" @click="incrementCounter">Increment</button>
-          <button type="button" @click="decrementCounter">Decrement</button>
+          <button type="button" @click="setIncrement">Increment</button>
+          <button type="button" @click="setDecrement">Decrement</button>
       </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default 
 {
@@ -17,14 +17,7 @@ export default
     computed: mapState({ counter: (state) => state.count}),
     methods:
     {
-        incrementCounter()
-        {
-            this.$store.commit("increment");
-        },
-        decrementCounter()
-        {
-            this.$store.commit("decrement");
-        }
+       ...mapActions(['setIncrement','setDecrement'])
     }
 }
 
