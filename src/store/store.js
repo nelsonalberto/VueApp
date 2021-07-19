@@ -3,7 +3,13 @@ import { createStore } from 'vuex'
 //Store that increment or decrement a quantity.
 export const store = createStore({
     state:{
-        count: 0
+        count: 0,
+        countries: ['El Salvador', 'United States', 'Mexico']
+    },
+    //We need to use  the mapGetters in the component where we need it.
+    getters:
+    {
+        getContries:(state) => state.countries
     },
     mutations:{
         increment(state){

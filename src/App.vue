@@ -5,6 +5,11 @@
       <Counter></Counter>
     </div>
     <hr>
+    <div>
+      <h3>Countries</h3>
+      <Countries></Countries>
+    </div>
+    <hr>
     <Users 
       v-for="user in userlisting"
       :key="user.id" 
@@ -12,6 +17,7 @@
       :username="user.username">
         <div><small>This is user is from fake API</small></div>
       </Users>
+
   </div>
 </template>
 
@@ -20,13 +26,14 @@
 import Http from "axios";
 import Users from "./components/Users.vue";
 import Counter from "./components/Counter.vue";
+import Countries from "./components/Countries.vue";
 
 export default
 {
   name: 'App',
   components: 
   {
-    Users, Counter
+    Users, Counter, Countries
   },
   data() { return { userlisting: []}},
   methods:
