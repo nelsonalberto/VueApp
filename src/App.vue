@@ -7,6 +7,9 @@
         <router-link active-class="active" tag="li" to="/users">
           <a>Users</a>
         </router-link>
+         <router-link active-class="active" tag="li" to="/posts/1">
+          <a>Posts</a>
+        </router-link>
       </ul>
     </div>
     <router-view class="container"></router-view>
